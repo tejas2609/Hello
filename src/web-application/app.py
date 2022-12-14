@@ -167,7 +167,7 @@ def register_user():
 	
 if __name__ == '__main__':
 	#from waitress import serve
-	s#erve(app,host="0.0.0.0", port=5000)
+	#serve(app,host="0.0.0.0", port=5000)
 	#app.run()
 	http_server = WSGIServer(('', 5000), app)
     	http_server.serve_forever()
