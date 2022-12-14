@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 import DH
 import pickle
 import random
+from gevent.pywsgi import WSGIServer
 
 UPLOAD_FOLDER = './media/text-files/'
 UPLOAD_KEY = './media/public-keys/'
@@ -165,6 +166,8 @@ def register_user():
 
 	
 if __name__ == '__main__':
-	from waitress import serve
-	serve(app,host="0.0.0.0", port=5000)
+	#from waitress import serve
+	s#erve(app,host="0.0.0.0", port=5000)
 	#app.run()
+	http_server = WSGIServer(('', 5000), app)
+    	http_server.serve_forever()
